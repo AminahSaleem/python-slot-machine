@@ -31,7 +31,7 @@ def check_winnings(columns, lines, bet, values):
             if symbol != symbol_to_check:
                 break
         else:
-            winning += values[symbol] * bet
+            winnings += values[symbol] * bet
             winning_lines.append(line + 1)
                 
     return winnings, winning_lines
@@ -111,8 +111,7 @@ def get_bet():
             
     return amount 
 
-def main():
-    balance = deposit()
+def spin(balance):
     lines = get_number_of_lines()
     while True:
         bet = get_bet()
@@ -129,16 +128,18 @@ def main():
     winnings, winning_lines = check_winnings(slots, lines, bet, symbol_value)
     print(f"You won ${winnings}.")
     print(f"You won on lines:", *winning_lines)
-    return winning_lines - total_bet
+    return winnings - total_bet
 
 def main():
-    balance= deposit()
+    balance = deposit()
     while True:
         print(f"Current balance is ${balance}")
-        spin = input("Press enter to spin (q to quit).")
-        if spin == "q":
+        answer = input("Press enter to spin (q to quit).")
+        if answer == "q":
             break
-        balance += spin()
+        balance += spin(balance)
+        
+    print(f"You are left with ${balance}")
    
 main() 
     

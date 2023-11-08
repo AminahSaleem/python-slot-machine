@@ -31,7 +31,11 @@ def get_slot_machine_spin(rows, cols, symbols):
             
             columns.append(column)
        
-       return columns      
+    return columns  
+   
+def print_slot_machine(columns):
+       for row in range(len(columns[0])):
+           
 
 
 def deposit():

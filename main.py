@@ -53,7 +53,7 @@ def get_slot_machine_spin(rows, cols, symbols):
             current_symbols.remove(value)
             column.append(value)
             
-            columns.append(column)
+        columns.append(column)
        
     return columns  
    
